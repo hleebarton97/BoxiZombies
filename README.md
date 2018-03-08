@@ -6,3 +6,6 @@
  ```git
  git clone https://github.com/hleebarton97/GameProgramming
  ```
+
+*Here is a link to help you guys push your contributions to the repo:*
+https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/
