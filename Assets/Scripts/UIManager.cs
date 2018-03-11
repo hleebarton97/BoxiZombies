@@ -8,19 +8,21 @@ public class UIManager : MonoBehaviour {
 
 	// Public variables
 	public static int round;
+	public static int health;
 
-	// Private variables
-	private TextMeshProUGUI roundText;
+	// Public variables
+	public TextMeshProUGUI roundText;	// Reference to round text.
+	public TextMeshProUGUI healthText; 	// Reference to health text.
 
-	// Use this for initialization
+	/*// Use this for initialization
 	void Awake() 
 	{
-		roundText = GetComponentInChildren<TextMeshProUGUI>();
-	}
+	}*/
 	
 	// Update is called once per frame
 	void Update() 
 	{
-		roundText.text = "ROUND:   " + round;
+		roundText.text = "ROUND:   " + round; // Update round text.
+		healthText.text = "" + health; // Easily convert int to string.
 	}
 }

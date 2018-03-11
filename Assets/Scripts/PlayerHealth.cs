@@ -45,6 +45,7 @@ public class PlayerHealth : MonoBehaviour {
 		weapon = GameObject.FindGameObjectWithTag("Weapon"); // Weapon object the player is holding.
 
 		currentHealth = startHealth; // Set health at start of game.
+		UIManager.health = currentHealth; // Set health UI at start of game.
 	}
 	
 	// Update is called once per frame
@@ -71,7 +72,10 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		isHit = true; // Player has been hit.
 		currentHealth -= damage; // Update current health.
-		/* Update UI health count */ 
+		if(currentHealth <= 0)
+			UIManager.health = 0;	// Make sure UI doesn't show -health.
+		else
+			UIManager.health = currentHealth; // Update health UI.
 		//playerAudio.Play();
 
 		Debug.Log("Health: " + currentHealth);
@@ -92,11 +96,10 @@ public class PlayerHealth : MonoBehaviour {
 		
 		gameAudio.Stop();
 
-		animator.SetTrigger("Die");
+		animator.SetTrigger("Die"); // Animate the player's death.
 
 		Destroy(weapon, 0f); // Remove weapon model from the game.
 
-		//animator.SetTrigger("Die"); // Animate the player's death.
 		//playerAudio.clip = playerDeath;
 		//playerAudio.Play();
 
