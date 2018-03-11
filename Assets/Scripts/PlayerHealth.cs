@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -86,7 +87,7 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
 	/**
-	 *
+	 * Kill the player and go to game over menu.
 	 */
 	private void KillPlayer()
 	{
@@ -94,7 +95,7 @@ public class PlayerHealth : MonoBehaviour {
 		
 		playerShoot.TurnOffGunEffects(); // Turn off any effects from shooting.
 		
-		gameAudio.Stop();
+		gameAudio.pitch = .65f; // Make a creepy pitch change in audio upon death.
 
 		animator.SetTrigger("Die"); // Animate the player's death.
 
@@ -106,5 +107,16 @@ public class PlayerHealth : MonoBehaviour {
 		// Disable movement and shooting.
 		playerMove.enabled = false;
 		playerShoot.enabled = false;
+
+		// Change to End Scene after 3 seconds of the player being dead.
+		Invoke("GameOver", 3);
+	}
+
+	/**
+	 * Change the scene to "End" (game over menu).
+	 */
+	private void GameOver()
+	{
+		SceneManager.LoadScene("End");
 	}
 }

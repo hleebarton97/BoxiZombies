@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bridge.unity
     guid: 8968a1539333ba34c8ab965803ed745a
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: dcc134f84986ef3488fcf6553294bf47
