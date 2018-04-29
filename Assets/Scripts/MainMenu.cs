@@ -3,15 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : MonoBehaviour 
+{
 
-	/**
-	 * When the user clicks "Play", start the game at
-	 * the appropriate scene.
-	 */
+	/************************************************************
+	* Purpose: When the user clicks "Play", start a random level
+	************************************************************/
 	public void PlayGame()
 	{
-		SceneManager.LoadScene("Bridge");
+		int i = Random.Range(0,2);//generate random nuber
+
+		if(i.Equals(0))
+		{
+			SceneManager.LoadScene("Bridge");
+		}
+		else
+		{
+			SceneManager.LoadScene("Bridge2");
+		}
+	}
+
+	/************************************************************
+	* Purpose: 
+	************************************************************/
+	public void LevelSelect()
+	{
+		SceneManager.LoadScene("LevelSelect");
 	}
 
 	/**

@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour {
 	// Public variables.
 	public int startHealth = 100;	// The amount of health the player starts with.
 	public int currentHealth;	// Current health the player has during game.
+	public float time = 0.0f; //used to execute heal() every second
 
 	// UI
 	/*public UIHealth uiHealthCount;	// UI's health count.
@@ -63,6 +64,26 @@ public class PlayerHealth : MonoBehaviour {
 		
 		// Reset isHit
 		isHit = false;
+
+		if(time > 1.0)
+		{
+			heal();
+			time = 0;//reset time
+		}
+		time = time + Time.deltaTime;
+
+	}
+
+	/******************************************************************************
+	* Purpose: Increases the players health by one every second.
+	******************************************************************************/
+	public void heal()
+	{
+		if(currentHealth < startHealth && currentHealth > 0)
+		{
+			currentHealth = currentHealth + 1;
+			UIManager.health = currentHealth;
+		}
 	}
 
 	/**
