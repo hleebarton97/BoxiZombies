@@ -1,4 +1,4 @@
-# Game Programming Group Project #
+# TAMUCC SPRING 2018 - COSC-3325-001: Game Programming Group Project #
 
 *To download repository using git:*
  - First make sure git is installed.
